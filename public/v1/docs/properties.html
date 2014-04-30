@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lag="en">
+	<head>
+		<title>Properties</title>
+	</head>
+	<body>
+		<ul>
+			<li><a href="/v1/docs/properties.html#add_property">Add A Property</a></li>
+			<li><a href="/v1/docs/properties.html#get_property">Get A Property</a></li>
+			<li><a href="/v1/docs/properties.html#edit_property">Edit A Property</a></li>
+			<li><a href="/v1/docs/properties.html#delete_property">Delete A Property</a></li>
+		</ul>
+		<section id="add_property">
+			<h1>How to add a new Property</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties
+				
+				{
+					"name": "Property Name"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5
+				
+				{
+					"id": "a1s2d3f4g5",
+					"name": "Property Name",
+					"lots": []
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_property">
+			<h1>How to get a Property</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/a1s2d3f4g5
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5
+				
+				{
+					"id": "a1s2d3f4g5",
+					"name": "Property Name",
+					"lots": []
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="edit_property">
+			<h1>How to edit a Property</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/properties/a1s2d3f4g5
+				
+				{
+					"name": "New Property Name",
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5
+				
+				{
+					"id": "a1s2d3f4g5",
+					"name": "New Property Name",
+					"lots": []
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="delete_property">
+			<h1>How to delete a Property</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/properties/a1s2d3f4g5
+			</pre>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="add_lot">
+			<h1>How to add a new Lot to a Property</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/a1s2d3f4g5/lots
+				
+				{
+					"name": "Lot Name",
+					"zoning": "Residential"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5/lots/1a2s3d4f5g
+				
+				{
+					"id": "1a2s3d4f5g",
+					"name": "Lot Name",
+					"zoning": "Residential"
+					"property": {},
+					"buildings": []
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_lots">
+			<h1>How to get all Lots for a Property</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/a1s2d3f4g5/lots
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5/lots
+				
+				[
+					{
+						"id": "1a2s3d4f5g",
+						"name": "Lot Name",
+						"zoning": "Residential"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="edit_lot">
+			<h1>How to edit a Lot on a Property</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/properties/a1s2d3f4g5/lots/1a2s3d4f5g
+				
+				{
+					"name": "New Lot Name",
+					"zoning": "Commercial"
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5/lots/1a2s3d4f5g
+				
+				{
+					"id": "1a2s3d4f5g",
+					"name": "New Lot Name",
+					"zoning": "Commercial",
+					"property": {},
+					"buildings": []
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="delete_lot">
+			<h1>How to delete a Lot from a Property</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/properties/a1s2d3f4g5/lots/1a2s3d4f5g
+			</pre>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5/lots/1a2s3d4f5g
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_building">
+			<h1>How to add a new Building to a Lot</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings
+				
+				{
+					"name": "Building Name",
+					"lot_id": "1a2s3d4f5g"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings/4f5g6h7j8k
+				
+				{
+					"id": "4f5g6h7j8k",
+					"name": "Building Name",
+					"lot": {},
+					"entrances": [],
+					"floors": [],
+					"units": []
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_buildings">
+			<h1>How to get all Buildings for a Lot</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings?lot_id=1a2s3d4f5g
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings?lot_id=1a2s3d4f5g
+				
+				[
+					{
+						"id": "4f5g6h7j8k",
+						"name": "Building Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="edit_building">
+			<h1>How to edit a Building on a Property</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings/4f5g6h7j8k
+				
+				{
+					"name": "New Building Name",
+					"lot_id": "New Lot Id"
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings/4f5g6h7j8k
+				
+				{
+					"id": "4f5g6h7j8k",
+					"name": "New Building Name",
+					"lot": {"id": "New Lot Id"},
+					"entrances": [],
+					"floors": [],
+					"units": []
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="delete_building">
+			<h1>How to delete a Building from a Property</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings/4f5g6h7j8k
+			</pre>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings/4f5g6h7j8k
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_entrance_to_building">
+			<h1>How to add a new Entrance to a Building</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/entrances
+				
+				{
+					"name": "Entrance Name",
+					"building_id": ":building_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/entrances/:id
+				
+				{
+					"id": ":id",
+					"name": "Entrance Name",
+					"building": {
+						"id": ":building_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_entrance_to_room">
+			<h1>How to add a new Entrance to a Room</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/entrances
+				
+				{
+					"name": "Entrance Name",
+					"room_id": ":room_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/entrances/:id
+				
+				{
+					"id": ":id",
+					"name": "Entrance Name",
+					"room": {
+						"id": ":room_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_entrance_to_unit">
+			<h1>How to add a new Entrance to a Unit</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/entrances
+				
+				{
+					"name": "Entrance Name",
+					"unit_id": ":unit_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/entrances/:id
+				
+				{
+					"id": ":id",
+					"name": "Entrance Name",
+					"unit": {
+						"id": ":unit_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_entrances_for_building">
+			<h1>How to get all Entrances for a Building</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/entrances?building_id=:building_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/entrances?building_id=:building_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Entrance Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_entrances_for_room">
+			<h1>How to get all Entrances for a Room</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/entrances?room_id=:room_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/entrances?room_id=:room_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Entrance Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_entrances_for_unit">
+			<h1>How to get all Entrances for a Unit</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/entrances?unit_id=:unit_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/entrances?unit_id=:unit_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Entrance Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="edit_entrance">
+			<h1>How to edit a Entrance</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/properties/:property_id/entrances/:id
+				
+				{
+					"id": ":id",
+					"name": "New Entrance Name"
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/entrances/:id
+				
+				{
+					"id": ":id",
+					"name": "New Entrance Name"
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="delete_entrance">
+			<h1>How to delete a Entrance</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/properties/:property_id/entrances/:id
+			</pre>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/properties/:property_id/entrances/:id
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_floor">
+			<h1>How to add a new Floor to a Building</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/floors
+				
+				{
+					"name": "Floor Name",
+					"building_id": ":building_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/floors/:id
+				
+				{
+					"id": ":id",
+					"name": "Floor Name",
+					"building": {
+						"id": "building_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_floors">
+			<h1>How to get all Floors for a Building</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/floors?building_id=:building_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/floors?building_id=:building_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Floor Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="edit_floor">
+			<h1>How to edit a Floor</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/properties/:property_id/floors/:id
+				
+				{
+					"name": "New Floor Name",
+					"building_id": ":new_building_id"
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/floors/:id
+				
+				{
+					"id": ":id",
+					"name": "New Floor Name",
+					"building": {
+						"id": ":new_building_Id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="delete_floor">
+			<h1>How to delete a Floor from a Property</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/properties/:property_id/floors/:id
+			</pre>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/properties/:property_id/floors/:id
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_room_to_floor">
+			<h1>How to add a new Room to a Floor</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/rooms
+				
+				{
+					"name": "Room Name",
+					"floor_id": ":floor_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/rooms/:id
+				
+				{
+					"id": ":id",
+					"name": "Room Name",
+					"floor": {
+						"id": ":floor_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_room_to_room">
+			<h1>How to add a new Room to a Room</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/rooms
+				
+				{
+					"name": "Room Name",
+					"room_id": ":room_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/rooms/:id
+				
+				{
+					"id": ":id",
+					"name": "Room Name",
+					"room": {
+						"id": ":room_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_room_to_unit">
+			<h1>How to add a new Room to a Unit</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/rooms
+				
+				{
+					"name": "Room Name",
+					"unit_id": ":unit_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/rooms/:id
+				
+				{
+					"id": ":id",
+					"name": "Room Name",
+					"unit": {
+						"id": ":unit_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_rooms_for_floor">
+			<h1>How to get all Rooms for a Floor</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/rooms?floor_id=:floor_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/rooms?floor_id=:floor_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Room Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_rooms_for_room">
+			<h1>How to get all Rooms for a Room</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/rooms?room_id=:room_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/rooms?room_id=:room_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Room Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_rooms_for_unit">
+			<h1>How to get all Rooms for a Unit</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/rooms?unit_id=:unit_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/rooms?unit_id=:unit_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Room Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="edit_room">
+			<h1>How to edit a Room</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/properties/:property_id/rooms/:id
+				
+				{
+					"id": ":id",
+					"name": "New Room Name"
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/rooms/:id
+				
+				{
+					"id": ":id",
+					"name": "New Room Name"
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="delete_room">
+			<h1>How to delete a Room</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/properties/:property_id/rooms/:id
+			</pre>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/properties/:property_id/rooms/:id
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_window_to_floor">
+			<h1>How to add a new Window to a Floor</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/windows
+				
+				{
+					"name": "Window Name",
+					"floor_id": ":floor_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/windows/:id
+				
+				{
+					"id": ":id",
+					"name": "Window Name",
+					"floor": {
+						"id": ":floor_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="add_window_to_room">
+			<h1>How to add a new Window to a Room</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/properties/:property_id/windows
+				
+				{
+					"name": "Window Name",
+					"room_id": ":room_id"
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/properties/:property_id/windows/:id
+				
+				{
+					"id": ":id",
+					"name": "Window Name",
+					"room": {
+						"id": ":room_id"
+					}
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_windows_for_floor">
+			<h1>How to get all Windows for a Floor</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/windows?floor_id=:floor_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/windows?floor_id=:floor_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Window Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_all_windows_for_room">
+			<h1>How to get all Windows for a Room</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/properties/:property_id/windows?room_id=:room_id
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/windows?room_id=:room_id
+				
+				[
+					{
+						"id": ":id",
+						"name": "Window Name"
+					}
+				]
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="edit_window">
+			<h1>How to edit a Window</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/properties/:property_id/windows/:id
+				
+				{
+					"id": ":id",
+					"name": "New Window Name"
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/properties/:property_id/windows/:id
+				
+				{
+					"id": ":id",
+					"name": "New Window Name"
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="delete_window">
+			<h1>How to delete a Window</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/properties/:property_id/windows/:id
+			</pre>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/properties/:property_id/windows/:id
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Accounts</title>
+	</head>
+	<body>
+		<ul>
+			<li><a href="/v1/docs/accounts.html#add_account">Add An Account</a></li>
+			<li><a href="/v1/docs/accounts.html#get_account">Get An Account</a></li>
+			<li><a href="/v1/docs/accounts.html#edit_account">Edit An Account</a></li>
+			<li><a href="/v1/docs/accounts.html#delete_account">Delete An Account</a></li>
+			<li><a href="/v1/docs/accounts.html#open_account">Open An Account</a></li>
+			<li><a href="/v1/docs/accounts.html#close_account">Close An Account</a></li>
+			<li><a href="/v1/docs/accounts.html#add_transaction">Add A Transaction To An Account</a></li>
+			<li><a href="/v1/docs/accounts.html#edit_transaction">Edit A Transaction On An Account</a></li>
+			<li><a href="/v1/docs/accounts.html#delete_transaction">Delete a Transaction From An Account</a></li>
+		</ul>
+		<section id="add_account">
+			<h1>How to add a new Account</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/accounts
+				
+				{
+					"name": "Account Name",
+					"limit": 150,
+					"balance": 100.00,
+					"bank": {
+						"name": "Bank Name",
+						"routing_number": 1234567890,
+						"account_number": 1234567890
+					}
+				}
+			</pre>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5
+				
+				{
+					"id": "a1s2d3f4g5",
+					"balance": 100.00,
+					"bank": {
+						"name": "Bank Name",
+						"routing_number": 1234567890,
+						"account_number": 1234567890
+					},
+					"limit": 150,
+					"name": "Account Name",
+					"transactions": [
+						{
+							"id": "0l9k8j7h6g5f4d3s2a1",
+							"timestamp": 1234567890.00,
+							"amount": 100.00,
+							"content" "Initial Balance"
+						}
+					]
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+			</ul>
+		</section>
+		<section id="get_account">
+			<h1>How to get an Account</h1>
+			<pre class="request">
+				GET http://api.reallist.net/v1/accounts/a1s2d3f4g5
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5
+				
+				{
+					"id": "a1s2d3f4g5",
+					"balance": 100.00,
+					"bank": {
+						"name": "Bank Name",
+						"routing_number": 1234567890,
+						"account_number": 1234567890
+					},
+					"limit": 150,
+					"name": "Account Name",
+					"transactions": [
+						{
+							"id": "0l9k8j7h6g5f4d3s2a1",
+							"timestamp": 1234567890.00,
+							"amount": 100.00,
+							"content" "Initial Balance"
+						}
+					]
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="edit_account">
+			<h1>How to edit an Account</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/accounts/a1s2d3f4g5
+				
+				{
+					"name": "New Account Name",
+					"limit": 200.00,
+					"bank": {
+						"name": "New Bank Name",
+						"routing_number": "1234567890aaa",
+						"account_number": "1234567890aaa"
+					}
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5
+				
+				{
+					"id": "a1s2d3f4g5",
+					"balance": 100.00,
+					"bank": {
+						"name": "New Bank Name",
+						"routing_number": "1234567890aaa",
+						"account_number": "1234567890aaa"
+					},
+					"limit": 200.00,
+					"name": "Account Name",
+					"transactions": [
+						{
+							"id": "0l9k8j7h6g5f4d3s2a1",
+							"timestamp": 1234567890.00,
+							"amount": 100.00,
+							"content" "Initial Balance"
+						}
+					]
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="delete_account">
+			<h1>How to edit an Account</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/accounts/a1s2d3f4g5
+			</pre>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="open_account">
+			<h1>How to open a closed Account</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/accounts/a1s2d3f4g5
+				
+				{
+					"name": "New Account Name",
+					"status": "Open",
+					"limit": 200.00,
+					"bank": {
+						"name": "New Bank Name",
+						"routing_number": "1234567890aaa",
+						"account_number": "1234567890aaa"
+					}
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5
+				
+				{
+					"id": "a1s2d3f4g5",
+					"balance": 100.00,
+					"bank": {
+						"name": "New Bank Name",
+						"routing_number": "1234567890aaa",
+						"account_number": "1234567890aaa"
+					},
+					"limit": 200.00,
+					"name": "New Account Name",
+					"status": "Open",
+					"transactions": [
+						{
+							"id": "0l9k8j7h6g5f4d3s2a1",
+							"timestamp": 1234567890.00,
+							"amount": 100.00,
+							"content" "Initial Balance"
+						}
+					]
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="close_account">
+			<h1>How to close an open Account</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/accounts/a1s2d3f4g5
+				
+				{
+					"name": "New Account Name",
+					"status": "Closed",
+					"limit": 200.00,
+					"bank": {
+						"name": "New Bank Name",
+						"routing_number": "1234567890aaa",
+						"account_number": "1234567890aaa"
+					}
+				}
+			</pre>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5
+				
+				{
+					"id": "a1s2d3f4g5",
+					"balance": 100.00,
+					"bank": {
+						"name": "New Bank Name",
+						"routing_number": "1234567890aaa",
+						"account_number": "1234567890aaa"
+					},
+					"limit": 200.00,
+					"name": "New Account Name",
+					"status": "Closed",
+					"transactions": [
+						{
+							"id": "0l9k8j7h6g5f4d3s2a1",
+							"timestamp": 1234567890.00,
+							"amount": 100.00,
+							"content" "Initial Balance"
+						}
+					]
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="add_transaction">
+			<h1>How to add a Transaction to an Account</h1>
+			<pre class="request">
+				POST http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions
+				
+				{
+					"timestamp": 1234567890.00,
+					"amount": 10.00,
+					"content" "New Deposit"
+				}
+			</pre>
+			<p>The transaction will be added and the account's balance will be recalculated.</p>
+			<pre class="response">
+				201 Created
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
+				
+				{
+					"id": "0l9k8j7h6g5f4d3s2a1",
+					"timestamp": 1234567890.00,
+					"amount": 10.00,
+					"content" "New Deposit"
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="edit_transaction">
+			<h1>How to edit a Transaction on an Account</h1>
+			<pre class="request">
+				PUT http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
+				
+				{
+					"id": "0l9k8j7h6g5f4d3s2a1",
+					"timestamp": 1234567890.00,
+					"amount": 10.00,
+					"content" "Old Deposit"
+				}
+			</pre>
+			<p>The transaction will be edited and the account's balance will be recalculated.</p>
+			<pre class="response">
+				200 Ok
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
+				
+				{
+					"id": "0l9k8j7h6g5f4d3s2a1",
+					"timestamp": 12367890.00,
+					"amount": 10.00,
+					"content" "Old Deposit"
+				}
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+		<section id="delete_transaction">
+			<h1>How to delete a Transaction on an Account</h1>
+			<pre class="request">
+				DELETE http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
+			</pre>
+			<p>The transaction will be deleted and the account's balance will be recalculated.</p>
+			<pre class="response">
+				204 No Content
+				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
+			</pre>
+			<h3>Possible Errors</h3>
+			<ul>
+				<li>Not Allowed</li>
+				<li>Invalid</li>
+				<li>Does Not Exist</li>
+			</ul>
+		</section>
+	</body>
+</html>
