@@ -289,8 +289,8 @@
 		</section>
 		<section id="add_transaction">
 			<p>
-				Transactions are used to track the activity on an account. Transactions can be created as well 
-				as updated and deleted.
+				Transactions are used to track the activity on an account. Transactions can be created, 
+				updated and deleted. The transaction will be added and the account's balance will be recalculated.
 			</p>
 			<h1>How to add a Transaction to an Account</h1>
 			<pre class="request">
@@ -302,7 +302,6 @@
 					"content" "New Deposit"
 				}
 			</pre>
-			<p>The transaction will be added and the account's balance will be recalculated.</p>
 			<pre class="response">
 				201 Created
 				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
@@ -322,6 +321,7 @@
 			</ul>
 		</section>
 		<section id="edit_transaction">
+			<p>The transaction will be edited and the account's balance will be recalculated.</p>
 			<h1>How to edit a Transaction on an Account</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
@@ -333,7 +333,6 @@
 					"content" "Old Deposit"
 				}
 			</pre>
-			<p>The transaction will be edited and the account's balance will be recalculated.</p>
 			<pre class="response">
 				200 Ok
 				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
@@ -353,6 +352,10 @@
 			</ul>
 		</section>
 		<section id="delete_transaction">
+			<p>
+				Deleting a transaction will remove the transaction. This action is permenant and cannot
+				be undone.
+			</p>
 			<h1>How to delete a Transaction on an Account</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/accounts/a1s2d3f4g5/transactions/0l9k8j7h6g5f4d3s2a1
@@ -369,5 +372,10 @@
 				<li>Does Not Exist</li>
 			</ul>
 		</section>
+		<p>Attach an Asset to an Account</p>
+		<dl>
+			<dt>Asset Name</dt><dd>Name of the asset.</dd>
+			<dt>Asset Id</dt><dd>Id of the asset.</dd>
+		</dl>
 	</body>
 </html>
