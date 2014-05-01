@@ -16,6 +16,11 @@
 			<li><a href="/v1/docs/accounts.html#delete_transaction">Delete a Transaction From An Account</a></li>
 		</ul>
 		<section id="add_account">
+			<p>
+				Account objects allow you to create multiple accounts and add, edit and delete transactions
+				related to the account, while tracking the accounts balance.
+				
+			</p>
 			<h1>How to add a new Account</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/accounts
@@ -31,6 +36,10 @@
 					}
 				}
 			</pre>
+			<dl>
+				<dt>Account Number</dt><dd>This is an account number that the user can define, different 
+				from the bank account number, such as a lease account number, client account number etc.</dd>
+			</dl>
 			<pre class="response">
 				201 Created
 				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5
@@ -59,9 +68,13 @@
 			<ul>
 				<li>Not Allowed</li>
 				<li>Invalid</li>
+				<li>Required Field is empty</li>
 			</ul>
 		</section>
 		<section id="get_account">
+			<p>
+				Retrieve the account object and the transactions related to the account. 
+			</p>
 			<h1>How to get an Account</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/accounts/a1s2d3f4g5
@@ -98,6 +111,10 @@
 			</ul>
 		</section>
 		<section id="edit_account">
+			<p>
+				Edit allows you to change the parameters related to the account. Only the modified fields
+				will be changed.
+			</p>
 			<h1>How to edit an Account</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/accounts/a1s2d3f4g5
@@ -112,6 +129,10 @@
 					}
 				}
 			</pre>
+			<dl>
+				<dt>Account Number</dt><dd>This is an account number that the user can define, different 
+				from the bank account number, such as a lease account number, client account number etc.</dd>
+			</dl>
 			<pre class="response">
 				200 Ok
 				Location: http://api.reallist.net/v1/accounts/a1s2d3f4g5
@@ -141,10 +162,11 @@
 				<li>Not Allowed</li>
 				<li>Invalid</li>
 				<li>Does Not Exist</li>
+				<li>Required field is empty</li>
 			</ul>
 		</section>
 		<section id="delete_account">
-			<h1>How to edit an Account</h1>
+			<h1>How to delete an Account</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/accounts/a1s2d3f4g5
 			</pre>
@@ -160,6 +182,9 @@
 			</ul>
 		</section>
 		<section id="open_account">
+			<p>
+				
+			</p>
 			<h1>How to open a closed Account</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/accounts/a1s2d3f4g5
