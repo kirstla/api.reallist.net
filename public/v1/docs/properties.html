@@ -225,7 +225,7 @@
 		</section>
 		<section id="add_building">
 			<p>
-				Allows you to create, update and delete buildings related to the property.
+				Allows you to create, update and delete buildings located on the lot.
 			</p>
 			<h1>How to add a new Building to a Lot</h1>
 			<pre class="request">
@@ -256,6 +256,9 @@
 			</ul>
 		</section>
 		<section id="get_all_buildings">
+			<p>
+				Retrieve all buildings located on the lot, using the lots unique id.
+			</p>
 			<h1>How to get all Buildings for a Lot</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings?lot_id=1a2s3d4f5g
@@ -278,6 +281,10 @@
 			</ul>
 		</section>
 		<section id="edit_building">
+			<p>
+				Edit allows you to change the parameters related to the building. Only the modified fields
+				will be changed.
+			</p>
 			<h1>How to edit a Building on a Property</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings/4f5g6h7j8k
@@ -307,6 +314,10 @@
 			</ul>
 		</section>
 		<section id="delete_building">
+			<p>
+				Permanently deletes the building and all parameters for the building.
+				This action is irreversible.
+			</p>
 			<h1>How to delete a Building from a Property</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings/4f5g6h7j8k
@@ -322,6 +333,9 @@
 			</ul>
 		</section>
 		<section id="add_entrance_to_building">
+			<p>
+				Allows you to create, update and delete entrances to a building.
+			</p>
 			<h1>How to add a new Entrance to a Building</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/:property_id/entrances
@@ -350,6 +364,9 @@
 			</ul>
 		</section>
 		<section id="add_entrance_to_room">
+			<p>
+				Allows you to create, update and delete entrances to a room.
+			</p>
 			<h1>How to add a new Entrance to a Room</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/:property_id/entrances
@@ -378,6 +395,9 @@
 			</ul>
 		</section>
 		<section id="add_entrance_to_unit">
+			<p>
+				Allows you to create, update and delete entrances to a unit.
+			</p>
 			<h1>How to add a new Entrance to a Unit</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/:property_id/entrances
@@ -406,6 +426,10 @@
 			</ul>
 		</section>
 		<section id="get_all_entrances_for_building">
+			<p>
+				Retrieves all entrances associated with a building, using the unique id for the 
+				building and entrance.
+			</p>
 			<h1>How to get all Entrances for a Building</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/entrances?building_id=:building_id
@@ -428,6 +452,10 @@
 			</ul>
 		</section>
 		<section id="get_all_entrances_for_room">
+			<p>
+				Retrieves all entrances associated with a room, using the unique id for the 
+				room and entrance.
+			</p>
 			<h1>How to get all Entrances for a Room</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/entrances?room_id=:room_id
@@ -450,6 +478,10 @@
 			</ul>
 		</section>
 		<section id="get_all_entrances_for_unit">
+			<p>
+				Retrieves all entrances associated with a unit, using the unique id for the 
+				unit and entrance.
+			</p>
 			<h1>How to get all Entrances for a Unit</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/entrances?unit_id=:unit_id
@@ -472,6 +504,10 @@
 			</ul>
 		</section>
 		<section id="edit_entrance">
+			<p>
+				Edit allows you to change the parameters related to the entrance. Only the modified fields
+				will be changed.
+			</p>
 			<h1>How to edit a Entrance</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/properties/:property_id/entrances/:id
@@ -497,6 +533,10 @@
 			</ul>
 		</section>
 		<section id="delete_entrance">
+			<p>
+				Permanently deletes the entrance and all of its parameters. 
+				This action is irreversible.
+			</p>
 			<h1>How to delete a Entrance</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/properties/:property_id/entrances/:id
@@ -512,6 +552,9 @@
 			</ul>
 		</section>
 		<section id="add_floor">
+			<p>
+				Allows you to create, update and delete floors related to a building.
+			</p>
 			<h1>How to add a new Floor to a Building</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/:property_id/floors
@@ -540,6 +583,9 @@
 			</ul>
 		</section>
 		<section id="get_all_floors">
+			<p>
+				Retrieves all floors associated with a building. 
+			</p>
 			<h1>How to get all Floors for a Building</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/floors?building_id=:building_id
@@ -562,6 +608,10 @@
 			</ul>
 		</section>
 		<section id="edit_floor">
+			<p>
+				Edit allows you to change the parameters related to the floor. Only the modified fields
+				will be changed.
+			</p>
 			<h1>How to edit a Floor</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/properties/:property_id/floors/:id
@@ -590,6 +640,10 @@
 			</ul>
 		</section>
 		<section id="delete_floor">
+			<p>
+				Permanently deletes the floor and all of its parameters. 
+				This action is irreversible.
+			</p>
 			<h1>How to delete a Floor from a Property</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/properties/:property_id/floors/:id
@@ -605,6 +659,9 @@
 			</ul>
 		</section>
 		<section id="add_room_to_floor">
+			<p>
+				Allows you to create, update and delete rooms on a floor.
+			</p>
 			<h1>How to add a new Room to a Floor</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/:property_id/rooms
@@ -661,6 +718,9 @@
 			</ul>
 		</section>
 		<section id="add_room_to_unit">
+			<p>
+				Allows you to create, update and delete a room in a unit.
+			</p>
 			<h1>How to add a new Room to a Unit</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/:property_id/rooms
@@ -689,6 +749,9 @@
 			</ul>
 		</section>
 		<section id="get_all_rooms_for_floor">
+			<p>
+				Retrieves all rooms on a floor using the unique id of the floor and rooms.
+			</p>
 			<h1>How to get all Rooms for a Floor</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/rooms?floor_id=:floor_id
@@ -711,6 +774,9 @@
 			</ul>
 		</section>
 		<section id="get_all_rooms_for_room">
+			<p>
+				Retrieves all rooms on a room using the unique id of the rooms.
+			</p>
 			<h1>How to get all Rooms for a Room</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/rooms?room_id=:room_id
@@ -733,6 +799,9 @@
 			</ul>
 		</section>
 		<section id="get_all_rooms_for_unit">
+		<p>
+				Retrieves all rooms on a unit using the unique id of the unit and rooms.
+			</p>
 			<h1>How to get all Rooms for a Unit</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/rooms?unit_id=:unit_id
@@ -755,6 +824,10 @@
 			</ul>
 		</section>
 		<section id="edit_room">
+			<p>
+				Edit allows you to change the parameters related to the room. Only the modified fields
+				will be changed.
+			</p>
 			<h1>How to edit a Room</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/properties/:property_id/rooms/:id
@@ -780,6 +853,10 @@
 			</ul>
 		</section>
 		<section id="delete_room">
+			<p>
+				Permanently deletes the room and all of its parameters. 
+				This action is irreversible.
+			</p>
 			<h1>How to delete a Room</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/properties/:property_id/rooms/:id
@@ -795,6 +872,9 @@
 			</ul>
 		</section>
 		<section id="add_window_to_floor">
+			<p>
+				Allows you to create, update and delete a window on a floor.
+			</p>
 			<h1>How to add a new Window to a Floor</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/:property_id/windows
@@ -823,6 +903,9 @@
 			</ul>
 		</section>
 		<section id="add_window_to_room">
+			<p>
+				Allows you to create, update and delete a window in a room.
+			</p>
 			<h1>How to add a new Window to a Room</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/:property_id/windows
@@ -851,6 +934,10 @@
 			</ul>
 		</section>
 		<section id="get_all_windows_for_floor">
+			<p>
+				Retrieves all windows associated with a floor using the unique ids of the floor
+				and windows.
+			</p>
 			<h1>How to get all Windows for a Floor</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/windows?floor_id=:floor_id
@@ -873,6 +960,10 @@
 			</ul>
 		</section>
 		<section id="get_all_windows_for_room">
+			<p>
+				Retrieves all windows associated with a room using the unique ids of the room
+				and windows.
+			</p>
 			<h1>How to get all Windows for a Room</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/:property_id/windows?room_id=:room_id
@@ -895,6 +986,10 @@
 			</ul>
 		</section>
 		<section id="edit_window">
+			<p>
+				Edit allows you to change the parameters related to the window. Only the modified fields
+				will be changed.
+			</p>
 			<h1>How to edit a Window</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/properties/:property_id/windows/:id
@@ -920,6 +1015,10 @@
 			</ul>
 		</section>
 		<section id="delete_window">
+			<p>
+				Permanently deletes the window and all of its parameters. 
+				This action is irreversible.
+			</p>
 			<h1>How to delete a Window</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/properties/:property_id/windows/:id
