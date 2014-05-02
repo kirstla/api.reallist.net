@@ -11,6 +11,13 @@
 			<li><a href="/v1/docs/properties.html#delete_property">Delete A Property</a></li>
 		</ul>
 		<section id="add_property">
+			<p>
+			A property is a piece of real estate, could be land, or a building on land. 
+			Each property is made of lots, buildings, units, floors, rooms, entrances and windows.
+			It is a written representation of your property and what makes up the property. 
+			You can create your property by defining the details of each component, such as size, 
+			color, build date, coordinates and more. 
+			</p>
 			<h1>How to add a new Property</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties
@@ -36,6 +43,9 @@
 			</ul>
 		</section>
 		<section id="get_property">
+			<p>
+				Retrieves the property using the properties unique Id. 
+			</p>
 			<h1>How to get a Property</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/a1s2d3f4g5
@@ -58,6 +68,10 @@
 			</ul>
 		</section>
 		<section id="edit_property">
+			<p>
+				Edit allows you to change the parameters related to the property. Only the modified fields
+				will be changed.
+			</p>
 			<h1>How to edit a Property</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/properties/a1s2d3f4g5
@@ -84,6 +98,9 @@
 			</ul>
 		</section>
 		<section id="delete_property">
+			<p>
+				Permenatly deletes the property and all parameters related to the property.
+			</p>
 			<h1>How to delete a Property</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/properties/a1s2d3f4g5
@@ -100,6 +117,9 @@
 			</ul>
 		</section>
 		<section id="add_lot">
+			<p>
+				Lot allows you to create, edit and delete the lot related to the property.
+			</p>
 			<h1>How to add a new Lot to a Property</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/a1s2d3f4g5/lots
@@ -128,6 +148,9 @@
 			</ul>
 		</section>
 		<section id="get_all_lots">
+			<p>
+				Retrieves all lots, using the unique lot id, related to the property.
+			</p>
 			<h1>How to get all Lots for a Property</h1>
 			<pre class="request">
 				GET http://api.reallist.net/v1/properties/a1s2d3f4g5/lots
@@ -151,6 +174,10 @@
 			</ul>
 		</section>
 		<section id="edit_lot">
+			<p>
+				Edit allows you to change the parameters related to the lot. Only the modified fields
+				will be changed.
+			</p>
 			<h1>How to edit a Lot on a Property</h1>
 			<pre class="request">
 				PUT http://api.reallist.net/v1/properties/a1s2d3f4g5/lots/1a2s3d4f5g
@@ -179,6 +206,9 @@
 			</ul>
 		</section>
 		<section id="delete_lot">
+			<p>
+				Permenantly deletes the lot from the building. 
+			</p>
 			<h1>How to delete a Lot from a Property</h1>
 			<pre class="request">
 				DELETE http://api.reallist.net/v1/properties/a1s2d3f4g5/lots/1a2s3d4f5g
@@ -194,6 +224,9 @@
 			</ul>
 		</section>
 		<section id="add_building">
+			<p>
+				Allows you to create, update and delete buildings related to the property.
+			</p>
 			<h1>How to add a new Building to a Lot</h1>
 			<pre class="request">
 				POST http://api.reallist.net/v1/properties/a1s2d3f4g5/buildings
