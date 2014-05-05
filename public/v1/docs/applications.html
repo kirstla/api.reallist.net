@@ -9,6 +9,11 @@
 			<li><a href="/v1/docs/applications.html#get_application">Get An Application</a></li>
 			<li><a href="/v1/docs/applications.html#edit_application">Edit An Application</a></li>
 			<li><a href="/v1/docs/applications.html#delete_application">Delete An Application</a></li>
+			<li><a href="/v1/docs/applications.html#delete_application">Add An Address to An Application</a></li>
+			<li><a href="/v1/docs/applications.html#delete_application">Add A Dependant to An Application</a></li>
+			<li><a href="/v1/docs/applications.html#delete_application">Add An Employer to An Application</a></li>
+			<li><a href="/v1/docs/applications.html#delete_application">Add An Emergency Contact to An Application</a></li>
+			<li><a href="/v1/docs/applications.html#delete_application">Add A Referencce to An Application</a></li>
 		</ul>	
 		<section id="add_property">	
 			<h1>How to Add a New Application</h1>
@@ -17,65 +22,66 @@
 			</pre>
 		</section>
 	
-	<dt>Applicant Name</dt><dd></dd>
+	<dt>Applicant Name</dt><dd>Required</dd>
 	<dt>Any other names you have used in the past</dt><dd></dd>
-	<dt>Date Application is being created</dt><dd></dd>
-	<dt>Date of Birth</dt><dd></dd>
-	<dt>Social Security Number</dt><dd></dd>
-	<dt>Phone</dt><dd></dd>
+	<dt>Date Application is being created</dt><dd>Required</dd>
+	<dt>Date of Birth</dt><dd>Required</dd>
+	<dt>Social Security Number</dt><dd>Required</dd>
+	<dt>Phone</dt><dd>Required</dd>
 	<dt>Alternate Phone</dt><dd></dd>
 	<dt>Email Address</dt><dd></dd>
-	<dt>Drivers License #</dt><dd></dd>
+	<dt>Drivers License #</dt><dd>Required</dd>
 	<dt>Size of Unit needed</dt><dd></dd>
 		<dt>Beds</dt><dd></dd>
 		<dt>Bath</dt><dd></dd>
 		<dt>Rent Amount</dt><dd></dd>
 	<dt>All other proposed residents adults and children</dt><dd></dd>
-		<dt>Date of Birth</dt><dd></dd>
+		<dt>Date of Birth</dt><dd>Calculate age automatically</dd>
 		<dt>Relationship</dt><dd></dd>
 	
 	Add Address
-		<dt>Select Current Address or Previous Address</dt><dd></dd>
-		<dt>Address</dt><dd></dd>
+		<dt>Current Address or Previous Address</dt><dd>Required, Drop down or check to indicate 
+		if current or previous address</dd>
+		<dt>Address</dt><dd>Required</dd>
 		<dt>Dates at this address:</dt><dd></dd>
 			<dt>Start Date</dt><dd></dd>
 			<dt>End Date</dt><dd></dd>
-		<dt>Landlord Contact Info</dt><dd></dd>
+		<dt>Landlord Contact Info</dt><dd>Required</dd>
 			<dt>Name</dt><dd></dd>
 			<dt>Phone</dt><dd></dd>
 			<dt>Email</dt><dd></dd>
-		<dt>Status when you vacated this apartment</dt><dd></dd>
+		<dt>Status when you vacated this address</dt><dd>Required</dd>
 			<dt>Good Standing - All Rent Paid</dt><dd></dd>
 			<dt>Owed Rent</dt><dd></dd>
 			<dt>Evicted</dt><dd></dd>
-	
+			<dt>Other</dt><dd></dd>
 	Add Dependent
-		<dt>Name</dt><dd></dd>
-		<dt>Age</dt><dd></dd>
-		<dt>Relationship to Dependent</dt><dd></dd>
+		<dt>Name</dt><dd>If dependant is added, Required</dd>
+		<dt>Date of Birth</dt><dd>If dependant is added, Required, Calculate age automatically</dd>
+		<dt>Relationship to Dependent</dt><dd>If dependant is added, Required</dd>
 		
 	Add Employer
-		<dt>Select Current Employer or Previous Employer</dt><dd></dd>
-		<dt>Company Name</dt><dd></dd>
+		<dt>Select if Current Employer or Previous Employer</dt><dd>Required</dd>
+		<dt>Company Name</dt><dd>Required</dd>
 		<dt>Address</dt><dd></dd>
 		<dt>Supervisor</dt><dd></dd>
-		<dt>Phone</dt><dd></dd>
+		<dt>Phone</dt><dd>Required</dd>
 		<dt>Email</dt><dd></dd>
-		<dt>Dates with this employer</dt><dd></dd>
+		<dt>Dates with this employer</dt><dd>Required</dd>
 			<dt>Start Date</dt><dd></dd>
 			<dt>End Date</dt><dd></dd>
 		<dt>Monthly Salary</dt><dd></dd>
 		<dt>Position Held</dt><dd></dd>
 	
 	Add Emergency Contact
-		<dt>Name</dt><dd></dd>
-		<dt>Phone </dt><dd></dd>
+		<dt>Name</dt><dd>Required</dd>
+		<dt>Phone </dt><dd>Required</dd>
 		<dt>Email</dt><dd></dd>
 		<dt>Relationship to Emergency Contact</dt><dd></dd>
 	
 	Add Reference
-		<dt>Name</dt><dd></dd>
-		<dt>Phone</dt><dd></dd>
+		<dt>Name</dt><dd>Required</dd>
+		<dt>Phone</dt><dd>Required</dd>
 		<dt>Email </dt><dd></dd>
 		<dt>Relationship to Reference</dt><dd></dd>
 	</body>
